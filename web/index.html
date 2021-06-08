@@ -46,30 +46,75 @@
         </div>
 
         <div id="imovelCasa" style="display:none">
-              <select class="form-control" id="quartos">
-                <option value= "Um">1</option>
-                <option value="Dois">2</option>
-                <option value= "tres">3</option>
-                <option value="Quatro">4</option>
-            </select>
+        
+              <form class="form-inline">
+                    <input class="form-control mr-2" id="quartos" type="number" placeholder="Digite quantidade de quartos">
+                    <br>
+                    <input class="form-control mr-2" id="suites" type="number" placeholder="Digite quantidade de suítes">
+                    <br>
+                    <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de estar">
+                    <br>
+                    <input class="form-control mr-2" id="vagas" type="number" placeholder="Digite quantidade de vagas na garagem">
+                    <br>
+                    <input class="form-control mr-2" id="area" type="number" placeholder="Digite área em metros quadrados">
+                    <br>
+                    <label for="armario">Possui armário embutido</label>
+                    <select class="form-control" id="armario">
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
+                    <br>
+                    <input  class="btn btn-primary" type="submit" value="Confirmar">
+                    <br>
+                    <label for="mensagem">Descrição</label>
+                    <textarea class="form-control" id="mensagem" rows="3"></textarea>
+               </form>
         </div>
         
-        <div id="imovelAp" style="display:block">
-              <select class="form-control" id="quartos">
-                <option value= "Um">1</option>
-                <option value="Dois">2</option>
-                <option value= "tres">3</option>
-          
-            </select>
+        <div id="imovelAp" style="display:none"> 
+              <form class="form-inline">
+                    <input class="form-control mr-2" id="quartos" type="number" placeholder="Digite quantidade de quartos">
+                    <br>
+                    <input class="form-control mr-2" id="suites" type="number" placeholder="Digite quantidade de suítes">
+                    <br>
+                    <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de jantar">
+                    <br>
+                    <input class="form-control mr-2" id="vagas" type="number" placeholder="Digite quantidade de vagas na garagem">
+                    <br>
+                    <input class="form-control mr-2" id="area" type="number" placeholder="Digite área em metros quadrados">
+                    <br>
+                    <label for="armario">Possui armário embutido?</label>
+                    <select class="form-control" id="armario">
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
+                    <br>
+                    <input  class="btn btn-primary" type="submit" value="Confirmar">
+                    <br>
+                    <label for="mensagem">Descrição</label>
+                    <textarea class="form-control" id="mensagem" rows="3"></textarea>
+                    <br>
+                    <input class="form-control mr-2" id="andares" type="number" placeholder="Digite quantidade de andares">
+                    <br>
+                    <input class="form-control mr-2" id="condominio" type="number" placeholder="Digite o valor do condomínio">
+                    <br>
+                    <label for="portaria">Possui portaria 24 horas?</label>
+                    <select class="form-control" id="portaria">
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
+               </form>
         </div>
         <script>
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
-                if(x=='Apartamento'){
+                if(x=='Apartamento')
+                {
                     document.getElementById("imovelAp").style.display  = "block";
                     document.getElementById("imovelCasa").style.display  = "none";
                 }
-                if(x=='Casa'){
+                if(x=='Casa')
+                {
                     document.getElementById("imovelAp").style.display  = "none";
                     document.getElementById("imovelCasa").style.display  = "block";
                 }
