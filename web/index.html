@@ -38,11 +38,23 @@
         <!-- select -->
         <div class="form-group">
             <label for="tipoimovel">Selecione o tipo do imóvel</label>
-            <select class="form-control" id="tipoimovel">
-                <option>Apartamento</option>
-                <option>Casa</option>
+            <select class="form-control" id="tipoimovel" onChange="funcao()">
+                <option value="Apartamento">Apartamento</option>
+                <option value="Casa">Casa</option>
             </select>
         </div>
+
+        <p id="imovelEscolhido"></p>
+
+        <script>
+            function funcao(){
+                var x = document.getElementById("tipoimovel").value;
+                if(x=='Apartamento')
+                    document.getElementById("imovelEscolhido").innerHTML = "Você escolheu: " + x
+                if(x=='Casa')
+                    document.getElementById("imovelEscolhido").innerHTML = "casaaaa: " + x
+            }
+        </script>
 
         <!-- textarea -->
         <div class="form-group">
