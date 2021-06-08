@@ -45,7 +45,7 @@
            
         </div>
 
-        <div id="imovelCasa">
+        <div id="imovelCasa" style="display:none">
               <select class="form-control" id="quartos">
                 <option value= "Um">1</option>
                 <option value="Dois">2</option>
@@ -54,7 +54,7 @@
             </select>
         </div>
         
-        <div id="imovelAp">
+        <div id="imovelAp" style="display:block">
               <select class="form-control" id="quartos">
                 <option value= "Um">1</option>
                 <option value="Dois">2</option>
@@ -66,10 +66,12 @@
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
                 if(x=='Apartamento')
-                    document.getElementById("imovelAp").style.display
-  
+                    document.getElementById("imovelAp").style.display  = "block";
+                    document.getElementById("imovelCasa").style.display  = "none";
                 if(x=='Casa')
-                    document.getElementById("imovelCasa").innerHTML ='Selecionou' + x;
+                    document.getElementById("imovelAp").style.display  = "none";
+                    document.getElementById("imovelCasa").style.display  = "block";
+                    
             }
         </script>
 
