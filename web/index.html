@@ -50,9 +50,13 @@
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
                 if(x=='Apartamento')
-                    document.getElementById("imovelEscolhido").innerHTML = "Você escolheu: " + x
+                    document.getElementById("imovelEscolhido").innerHTML = `<div class="form-group">
+            <label id="range">Satisfação</label>
+            <input class="custom-range" type="range" 
+            id="range" min="1" max="5">
+        </div>`;
                 if(x=='Casa')
-                    document.getElementById("imovelEscolhido").innerHTML = "casaaaa: " + x
+                    document.getElementById("imovelEscolhido").innerHTML = `<input class="btn btn-primary" type="submit" value="Salvar">`;
             }
         </script>
 
