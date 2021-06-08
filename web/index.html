@@ -46,6 +46,7 @@
         </div>
 
         <div id="imovelCasa">
+              <label for="quartos">Selecione a quantidade de quartos</label>
               <select class="form-control" id="quartos">
                 <option value= "Um">1</option>
                 <option value="Dois">2</option>
@@ -55,6 +56,7 @@
         </div>
         
         <div id="imovelAp">
+              <label for="quartos">Selecione a quantidade de quartos</label>
               <select class="form-control" id="quartos">
                 <option value= "Um">1</option>
                 <option value="Dois">2</option>
@@ -66,10 +68,10 @@
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
                 if(x=='Apartamento')
-                    document.getElementById("imovelAp").style.display
+                    document.getElementById("imovelAp").style.display = 'block';
   
                 if(x=='Casa')
-                    document.getElementById("imovelCasa").innerHTML ='Selecionou' + x;
+                    document.getElementById("imovelCasa").style.display  = 'block';
             }
         </script>
 
