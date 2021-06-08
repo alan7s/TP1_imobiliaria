@@ -41,27 +41,35 @@
             <select class="form-control" id="tipoimovel" onChange="funcao()">
                 <option value="Apartamento">Apartamento</option>
                 <option value="Casa">Casa</option>
-            <input type="tipoimovel">Selecione o tipo do imóvel</input>
-            <select class="form-control" id="tipoimovel">
-                <option>Apartamento</option>
-                <option>Casa</option>
             </select>
            
         </div>
 
-        <p id="imovelEscolhido"></p>
-
+        <div id="imovelCasa">
+              <select class="form-control" id="quartos">
+                <option value= "Um">1</option>
+                <option value="Dois">2</option>
+                <option value= "tres">3</option>
+                <option value="Quatro">4</option>
+            </select>
+        </div>
+        
+        <div id="imovelAp">
+              <select class="form-control" id="quartos">
+                <option value= "Um">1</option>
+                <option value="Dois">2</option>
+                <option value= "tres">3</option>
+          
+            </select>
+        </div>
         <script>
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
                 if(x=='Apartamento')
-                    document.getElementById("imovelEscolhido").innerHTML = `<div class="form-group">
-            <label id="range">Satisfação</label>
-            <input class="custom-range" type="range" 
-            id="range" min="1" max="5">
-        </div>`;
+                    document.getElementById("imovelAp").style.display
+  
                 if(x=='Casa')
-                    document.getElementById("imovelEscolhido").innerHTML = `<input class="btn btn-primary" type="submit" value="Salvar">`;
+                    document.getElementById("imovelCasa").innerHTML ='Selecionou' + x;
             }
         </script>
 
