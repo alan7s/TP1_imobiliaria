@@ -65,13 +65,14 @@
         <script>
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
-                if(x=='Apartamento')
+                if(x=='Apartamento'){
                     document.getElementById("imovelAp").style.display  = "block";
                     document.getElementById("imovelCasa").style.display  = "none";
-                if(x=='Casa')
+                }
+                if(x=='Casa'){
                     document.getElementById("imovelAp").style.display  = "none";
                     document.getElementById("imovelCasa").style.display  = "block";
-                    
+                }
             }
         </script>
 
