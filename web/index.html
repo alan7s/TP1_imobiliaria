@@ -44,12 +44,16 @@
                  
             </select>
             <br>
+            <label>Quantos quartos?</label>
             <input class="form-control mr-2" id="quartos" type="number" placeholder="Digite quantidade de quartos">
             <br>
+            <label>Quantas suítes?</label>
             <input class="form-control mr-2" id="suites" type="number" placeholder="Digite quantidade de suítes">
             <br>
+            <label>Quantas vagas na garagem?</label>
             <input class="form-control mr-2" id="vagas" type="number" placeholder="Digite quantidade de vagas na garagem">
             <br>
+            <label>Área total?</label>
             <input class="form-control mr-2" id="area" type="number" placeholder="Digite área em metros quadrados">
             <br>
             <label for="armario">Possui armário embutido?</label>
@@ -63,10 +67,13 @@
 
         <div id="imovelAp" style="display:block"> 
               <form class="form-inline">
+                    <label>Quantas salas de jantar?</label>
                     <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de jantar">
-                    <br>        
-                    <input class="form-control mr-2" id="andares" type="number" placeholder="Digite quantidade de andares">
                     <br>
+                    <label>Qual o andar?</label>
+                    <input class="form-control mr-2" id="andares" type="number" placeholder="Informe o andar do apartamento">
+                    <br>
+                    <label>Valor do condominio?</label>
                     <input class="form-control mr-2" id="condominio" type="number" placeholder="Digite o valor do condomínio">
                     <br>
                     <label for="portaria">Possui portaria 24 horas?</label>
@@ -79,18 +86,22 @@
         </div>
 
         <div id="imovelCasa" style="display:none">
-                <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de estar">
-                <br>   
+            <label>Quantas salas de estar?</label>
+            <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de estar">
+            <br>   
         </div>
+        <label>Informe nome da rua</label>
         <input class="form-control mr-2" id="rua" type="text" placeholder="Digite o nome da rua">
         <br>
-        <input class="form-control mr-2" id="numero" type="number" placeholder="Digite o numero da casa">
+        <label>Informe número da casa</label>
+        <input class="form-control mr-2" id="numero" type="number" placeholder="Digite o número da casa">
         <br>
+        <label>Informe complento para o endereço</label>
         <input class="form-control mr-2" id="complemento" type="text" placeholder="Informe o complemento">
         <br>
         <label for="bairro">Informe o bairro</label>
         <select class="form-control" id="bairro">
-                  <option value="Vitoria">Vitoria</option>
+                  <option value="Vitoria">Vitória</option>
                   <option value="Goania">Goania</option>
                   <option value="Horto">Horto</option>
                   <option value="SantaTereza">Santa Tereza</option>
@@ -98,9 +109,10 @@
                   <option value="VilaDaLuz">Vila Da Luz</option>
         </select>
         <br>
+        <label>Informe o valor do aluguel</label>
         <input class="form-control mr-2" id="aluguel" type="number" placeholder="Digite o valor do aluguel">
         <br>
-        <button onclick="calendario()" type="button" class="btn btn-primary">Deseja Agendar visita?</button>
+        <button onclick="calendario()" type="button" class="btn btn-primary">Agendar visita</button>
         <br><br>
         <div id="calendario" style="display:none">
                <input type="date" id="birthday" name="birthday">
@@ -133,74 +145,15 @@
 
         <!-- textarea -->
         <div class="form-group">
-            <label for="mensagem">Descrição</label>
+            <label for="mensagem">Descrição do imóvel</label>
             <textarea class="form-control" id="mensagem" rows="3"></textarea>
         </div>
         
         <input class="btn btn-primary" type="submit" value="Salvar">
         <br><br>
-        <!-- file input -->
-        <div class="form-group">
-            <label for="arquivo">Arquivo</label>
-            <input class="form-control-file" type="file" id="arquivo">
-        </div>
-
-
-        <!-- custom file input -->
-        <div class="custom-file">
-            <input class="custom-file-input" type="file" id="arquivo">
-            <label class="custom-file-label">Selecione arquivo</label>
-        </div>
-        <br><br>
-
-        <!-- range -->
-        <div class="form-group">
-            <label id="range">Satisfação</label>
-            <input class="custom-range" type="range" 
-            id="range" min="1" max="5">
-        </div>
-        
-
-        <!-- button -->
-        <input class="btn btn-primary" type="submit" value="Salvar">
-        <br>
+ 
     </form>
     <br><br>
-
-    <!-- Formulário inline -->
-    <form class="form-inline">
-        <input class="form-control mr-2" type="text" placeholder="Digite seu usuário">
-        <input class="form-control mr-2" type="password" placeholder="Digite sua senha">
-        <input  class="btn btn-primary" type="submit" value="Logar">
-    </form>
-    <br><br>
-
-    <!-- 
-    Validação de formulário 
-    Classes: is-valid, is-invalid, invalid-feedback, valid-feedback
-    -->
-    <form>
-        
-        <div class="form-group">
-            <label for="email-usuario">email</label>
-            <input class="form-control is-valid" type="text" id="email-usuario" placeholder="Digite seu e-mail">
-            <div class="valid-feedback">
-                Email válido
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="senha-usuario">Senha</label>
-            <input class="form-control is-invalid" type="email" id="senha-usuario" placeholder="Digite sua senha">
-            <div class="invalid-feedback">
-                Senha inválida
-            </div>
-        </div>
-
-        <input class="btn btn-primary" type="submit" value="Logar">
-
-    </form>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
