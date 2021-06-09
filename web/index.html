@@ -57,8 +57,10 @@
                   <option value="S">Sim</option>
                   <option value="N">Não</option>
             </select>
-            <br>               
+            <br>
+         
         </div>
+
         <div id="imovelAp" style="display:block"> 
               <form class="form-inline">
                     <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de jantar">
@@ -80,8 +82,32 @@
                 <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de estar">
                 <br>   
         </div>
-        
-     
+        <input class="form-control mr-2" id="rua" type="text" placeholder="Digite o nome da rua">
+        <br>
+        <input class="form-control mr-2" id="numero" type="number" placeholder="Digite o numero da casa">
+        <br>
+        <input class="form-control mr-2" id="complemento" type="text" placeholder="Informe o complemento">
+        <br>
+        <label for="bairro">Informe o bairro</label>
+        <select class="form-control" id="bairro">
+                  <option value="Vitoria">Vitoria</option>
+                  <option value="Goania">Goania</option>
+                  <option value="Horto">Horto</option>
+                  <option value="SantaTereza">Santa Tereza</option>
+                  <option value="Floresta">Floresta</option>
+                  <option value="VilaDaLuz">Vila Da Luz</option>
+        </select>
+        <br>
+        <input class="form-control mr-2" id="aluguel" type="number" placeholder="Digite o valor do aluguel">
+        <br>
+        <button onclick="calendario()" type="button" class="btn btn-primary">Deseja Agendar visita?</button>
+        <br><br>
+        <div id="calendario" style="display:none">
+               <input type="date" id="birthday" name="birthday">
+               <input type="submit">
+        </div>
+        <br>
+       
         <script>
             function funcao(){
                 var x = document.getElementById("tipoimovel").value;
@@ -96,6 +122,13 @@
                     document.getElementById("imovelCasa").style.display  = "block";
                 }
             }
+            function calendario()
+            { 
+                if(document.getElementById("calendario").style.display !== 'none')  
+                    document.getElementById("calendario").style.display  = 'none';
+                else
+                    document.getElementById("calendario").style.display  = 'block';
+            }
         </script>
 
         <!-- textarea -->
@@ -105,6 +138,7 @@
         </div>
         
         <input class="btn btn-primary" type="submit" value="Salvar">
+        <br><br>
         <!-- file input -->
         <div class="form-group">
             <label for="arquivo">Arquivo</label>
@@ -117,7 +151,7 @@
             <input class="custom-file-input" type="file" id="arquivo">
             <label class="custom-file-label">Selecione arquivo</label>
         </div>
-        <br><br> 
+        <br><br>
 
         <!-- range -->
         <div class="form-group">
@@ -129,7 +163,7 @@
 
         <!-- button -->
         <input class="btn btn-primary" type="submit" value="Salvar">
-
+        <br>
     </form>
     <br><br>
 
