@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <script type="text/javascript">
+        
+        
 
         var db = openDatabase("Imobiliaria","2.0","Mybase",4048);
+        
         db.transaction(function(criar)
         {
-            criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
-            criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
+           
+            criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
+            criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
         });
-        
+       
         function salvar()
         {
             var tipoimovel = document.getElementById('tipoimovel').value;
@@ -33,25 +37,29 @@
             var complemento = document.getElementById('complemento').value;
             var bairro = document.getElementById('bairro').value;
             var aluguel = document.getElementById('aluguel').value;
-           // var calendario = document.getElementById('calendario').value;
+            var data = document.getElementById('data').value;
+            var hora = document.getElementById('hora').value;
             var mensagem = document.getElementById('mensagem').value;
-            //if(document.getElementById('tipoimovel').value == 'Casa')
-            //{
+            if(document.getElementById('tipoimovel').value == 'Casa')
+            {
                 var salas = document.getElementById('salas').value;
                 db.transaction(function(armazenar)
                 {
-                    armazenar,executeSql('INSERT INTO casa (tipoimovel,quartos) VALUES(?,?)',[tipoimovel,quartos]);
-                //armazenar.executeSql("INSERT INTO casa(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas]);
+                 armazenar.executeSql("INSERT INTO casa(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,data,hora) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,data,hora]);
                 });
 
-           // }
-             if(document.getElementById('tipoimovel').value == 'Apartamento')
-            {
+           }
+           else if(document.getElementById('tipoimovel').value == 'Apartamento')
+           {
                 var salas = document.getElementById('salas2').value;
                 var andar = document.getElementById('andar').value;
                 var condominio = document.getElementById('condominio').value;
                 var portaria = document.getElementById('portaria').value;
-            }
+                db.transaction(function(armazenar)
+                {
+                 armazenar.executeSql("INSERT INTO apartamento(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,andar,condominio,portaria,data,hora) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,andar,condominio,portaria,data,hora]);
+                });
+           }
         }
     </script>
   </head>
@@ -179,7 +187,7 @@
             <textarea class="form-control" id="mensagem" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" value="Salvar">
+            <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
         <div class="form-group">
         <br><br>
     </form>
