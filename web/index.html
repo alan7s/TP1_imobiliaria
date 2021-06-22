@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <script type="text/javascript">
+
         var db = openDatabase("Imobiliaria","2.0","Mybase",4048);
         db.transaction(function(criar)
         {
-            criar.executeSql("CREATE TABLE casa (ID PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario INTEGER, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
-            criar.executeSql("CREATE TABLE apartamento (ID PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario INTEGER,salas INTEGER, andar INTEGER, condominio INTEGER, portaria INTEGER,rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
+            criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
+            criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
         });
+        
         function salvar()
         {
             var tipoimovel = document.getElementById('tipoimovel').value;
@@ -31,18 +33,18 @@
             var complemento = document.getElementById('complemento').value;
             var bairro = document.getElementById('bairro').value;
             var aluguel = document.getElementById('aluguel').value;
-            var calendario = document.getElementById('calendario').value;
+           // var calendario = document.getElementById('calendario').value;
             var mensagem = document.getElementById('mensagem').value;
-            if(document.getElementById('tipoimovel').value == 'Casa')
-            {
+            //if(document.getElementById('tipoimovel').value == 'Casa')
+            //{
                 var salas = document.getElementById('salas').value;
                 db.transaction(function(armazenar)
                 {
-                    armazenar.executeSql("INSERT INTO casa(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,calendario,mensagem,salas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                    [tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,calendario,mensagem,salas]);
-                })
+                    armazenar,executeSql('INSERT INTO casa (tipoimovel,quartos) VALUES(?,?)',[tipoimovel,quartos]);
+                //armazenar.executeSql("INSERT INTO casa(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas]);
+                });
 
-            }
+           // }
              if(document.getElementById('tipoimovel').value == 'Apartamento')
             {
                 var salas = document.getElementById('salas2').value;
