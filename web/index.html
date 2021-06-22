@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿﻿<!doctype html>
 <html lang="pt-br">
   <head>
 
@@ -19,9 +19,10 @@
         
         db.transaction(function(criar)
         {
-           
-            criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
-            criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
+           //criar.executeSql("DROP TABLE casa");
+           //criar.executeSql("DROP TABLE apartamento");
+           criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
+           criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
         });
        
         function salvar()
