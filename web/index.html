@@ -11,6 +11,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
+    <script type="text/javascript">
+        var db = openDatabase("Imobiliaria","2.0","Mybase",4048);
+        db.translation(function(criar)
+        {
+            criar.executeSql("CREATE TABLE casa (ID PRIMARY KEY, tipoimovel TEXT, quartos INTEGER");//, suites INTEGER, vagas INTEGER, area INTEGER, armario INTEGER, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
+           // criar.executeSql("CREATE TABLE apartamento (ID PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario INTEGER,salas INTEGER, andar INTEGER, condominio INTEGER, portaria INTEGER,rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, calendario TEXT, mensagem TEXT)");
+        });
+    </script>
   </head>
 
   <body style="margin-bottom: 200px;padding: 16px;" class="bg-info">
