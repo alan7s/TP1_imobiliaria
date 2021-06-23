@@ -76,19 +76,19 @@
         </div>
         <div class="form-group">
             <label for="quartos">Quantos quartos?</label>
-            <input class="form-control mr-2" id="quartos" type="number" placeholder="Digite quantidade de quartos">
+            <input class="form-control mr-2" id="quartos" type="number"  min="0" max="100" placeholder="Digite quantidade de quartos">
         </div>
         <div class="form-group">
             <label for="suites">Quantas suítes?</label>
-            <input class="form-control mr-2" id="suites" type="number" placeholder="Digite quantidade de suítes">
+            <input class="form-control mr-2" id="suites" type="number" min="0" max="100" placeholder="Digite quantidade de suítes">
         </div>
         <div class="form-group">
             <label for="vagas">Quantas vagas na garagem?</label>
-            <input class="form-control mr-2" id="vagas" type="number" placeholder="Digite quantidade de vagas na garagem">
+            <input class="form-control mr-2" id="vagas" type="number" min="0" max="100" placeholder="Digite quantidade de vagas na garagem">
         </div>
         <div class="form-group">
             <label for="area">Área total?</label>
-            <input class="form-control mr-2" id="area" type="number" placeholder="Digite área em metros quadrados">
+            <input class="form-control mr-2" id="area" type="number" min="0" max="100" placeholder="Digite área em metros quadrados">
         </div>
         <div class="form-group">
             <label for="armario">Possui armário embutido?</label>
@@ -103,15 +103,15 @@
               <!--<form class="form-inline">-->
               <div class="form-group">
                     <label for="salas">Quantas salas de jantar?</label>
-                    <input class="form-control mr-2" id="salas2" type="number" placeholder="Digite quantidade de salas de jantar">
+                    <input class="form-control mr-2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
               </div>
               <div class="form-group">
                     <label for="andar">Qual o andar?</label>
-                    <input class="form-control mr-2" id="andar" type="number" placeholder="Informe o andar do apartamento">
+                    <input class="form-control mr-2" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
               </div>
               <div class="form-group">
                     <label for="condominio">Valor do condominio?</label>
-                    <input class="form-control mr-2" id="condominio" type="number" placeholder="Digite o valor do condomínio">
+                    <input class="form-control mr-2" id="condominio" type="number" min="0" max="100" placeholder="Digite o valor do condomínio">
               </div>
               <div class="form-group">
                 <label for="portaria">Possui portaria 24 horas?</label>
@@ -125,7 +125,7 @@
 
         <div id="imovelCasa" style="display:none" class="form-group">
             <label for="salas">Quantas salas de estar?</label>
-            <input class="form-control mr-2" id="salas" type="number" placeholder="Digite quantidade de salas de estar">
+            <input class="form-control mr-2" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
             <!--<br>   -->
         </div>
         <div class="form-group">
@@ -134,7 +134,7 @@
         </div>
         <div class="form-group">
             <label for="numero">Informe número da casa</label>
-            <input class="form-control mr-2" id="numero" type="number" placeholder="Digite o número da casa">
+            <input class="form-control mr-2" id="numero" type="number" min="0" max="100000" placeholder="Digite o número da casa">
         </div>
         <div class="form-group">
             <label "complemento">Informe o complemento para o endereço</label>
@@ -153,7 +153,7 @@
         </div>
         <div class="form-group">
             <label for="aluguel">Informe o valor do aluguel</label>
-            <input class="form-control mr-2" id="aluguel" type="number" placeholder="Digite o valor do aluguel">
+            <input class="form-control mr-2" id="aluguel" type="number" min="0" placeholder="Digite o valor do aluguel">
         </div>
         <div class="form-group form-inline">
             <input class="btn btn-primary mr-2" onclick="calendario()" type="button" value="Agendar visita">
