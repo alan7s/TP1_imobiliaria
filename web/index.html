@@ -75,131 +75,167 @@
    <!--<img src="imagem-fundo.jpg" id="imagem" alt="">-->
     <form class="containers col-lg-4">
     
-        <div class="form-group">
-            <label for="tipoimovel">Selecione o tipo do imóvel</label>
-            <select class="form-control " id="tipoimovel" onChange="funcao()">
-                <option value="Apartamento">Apartamento</option>
-                <option value="Casa">Casa</option>
+         <div class="form-group">
+            <label for="opcao">Selecione a opção de cadastro ou visualização</label>
+            <select class="form-control " id="opcao" onChange="selectopcao()">
+                <option selected disabled hidden style='display: none' value=''></option> 
+                <option  value="cadatro">Cadastrar imóvel</option>
+                <option  value="visualizar">Visualizar imóveis cadastrados</option>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="quartos">Quantos quartos?</label>
-            <input class="form-control mr-2" id="quartos" type="number"  min="0" max="100" placeholder="Digite quantidade de quartos">
-        </div>
-        <div class="form-group">
-            <label for="suites">Quantas suítes?</label>
-            <input class="form-control mr-2" id="suites" type="number" min="0" max="100" placeholder="Digite quantidade de suítes">
-        </div>
-        <div class="form-group">
-            <label for="vagas">Quantas vagas na garagem?</label>
-            <input class="form-control mr-2" id="vagas" type="number" min="0" max="100" placeholder="Digite quantidade de vagas na garagem">
-        </div>
-        <div class="form-group">
-            <label for="area">Área total?</label>
-            <input class="form-control mr-2" id="area" type="number" min="0" max="100" placeholder="Digite área em metros quadrados">
-        </div>
-        <div class="form-group">
-            <label for="armario">Possui armário embutido?</label>
-            <select class="form-control" id="armario">
-                  <option value="S">Sim</option>
-                  <option value="N">Não</option>
-            </select>
-        </div>
+        
+            <div id="cadastrar" style="display:none" class="form-group"> 
+                <div class="form-group">
+                    <label for="tipoimovel">Selecione o tipo do imóvel</label>
+                    <select class="form-control " id="tipoimovel" onChange="funcao()">
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Casa">Casa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quartos">Quantos quartos?</label>
+                    <input class="form-control mr-2" id="quartos" type="number"  min="0" max="100" placeholder="Digite quantidade de quartos">
+                </div>
+                <div class="form-group">
+                    <label for="suites">Quantas suítes?</label>
+                    <input class="form-control mr-2" id="suites" type="number" min="0" max="100" placeholder="Digite quantidade de suítes">
+                </div>
+                <div class="form-group">
+                    <label for="vagas">Quantas vagas na garagem?</label>
+                    <input class="form-control mr-2" id="vagas" type="number" min="0" max="100" placeholder="Digite quantidade de vagas na garagem">
+                </div>
+                <div class="form-group">
+                    <label for="area">Área total?</label>
+                    <input class="form-control mr-2" id="area" type="number" min="0" max="100" placeholder="Digite área em metros quadrados">
+                </div>
+                <div class="form-group">
+                    <label for="armario">Possui armário embutido?</label>
+                    <select class="form-control" id="armario">
+                          <option value="S">Sim</option>
+                          <option value="N">Não</option>
+                    </select>
+                </div>
         
         
-        <div id="imovelAp" style="display:block" class="form-group"> 
-              <!--<form class="form-inline">-->
-              <div class="form-group">
-                    <label for="salas">Quantas salas de jantar?</label>
-                    <input class="form-control mr-2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
-              </div>
-              <div class="form-group">
-                    <label for="andar">Qual o andar?</label>
-                    <input class="form-control mr-2" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
-              </div>
-              <div class="form-group">
-                    <label for="condominio">Valor do condominio?</label>
-                    <input class="form-control mr-2" id="condominio" type="number" min="0" max="100" placeholder="Digite o valor do condomínio">
-              </div>
-              <div class="form-group">
-                <label for="portaria">Possui portaria 24 horas?</label>
-                <select class="form-control" id="portaria">
-                    <option value="S">Sim</option>
-                    <option value="N">Não</option>
-                </select>
-              </div>
-              <!--</form>-->
-        </div>
+                <div id="imovelAp" style="display:block" class="form-group"> 
+                      <!--<form class="form-inline">-->
+                      <div class="form-group">
+                            <label for="salas">Quantas salas de jantar?</label>
+                            <input class="form-control mr-2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
+                      </div>
+                      <div class="form-group">
+                            <label for="andar">Qual o andar?</label>
+                            <input class="form-control mr-2" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
+                      </div>
+                      <div class="form-group">
+                            <label for="condominio">Valor do condominio?</label>
+                            <input class="form-control mr-2" id="condominio" type="number" min="0" max="100" placeholder="Digite o valor do condomínio">
+                      </div>
+                      <div class="form-group">
+                        <label for="portaria">Possui portaria 24 horas?</label>
+                        <select class="form-control" id="portaria">
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                      </div>
+                      <!--</form>-->
+                </div>
 
-        <div id="imovelCasa" style="display:none" class="form-group">
-            <label for="salas">Quantas salas de estar?</label>
-            <input class="form-control mr-2" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
-            <!--<br>   -->
-        </div>
-        <div class="form-group">
-            <label for="rua">Informe nome da rua</label>
-            <input class="form-control mr-2" id="rua" type="text" placeholder="Digite o nome da rua">
-        </div>
-        <div class="form-group">
-            <label for="numero">Informe número da casa</label>
-            <input class="form-control mr-2" id="numero" type="number" min="0" max="100000" placeholder="Digite o número da casa">
-        </div>
-        <div class="form-group">
-            <label "complemento">Informe o complemento para o endereço</label>
-            <input class="form-control mr-2" id="complemento" type="text" placeholder="Informe o complemento">
-        </div>
-        <div class="form-group">
-            <label for="bairro">Informe o bairro</label>
-            <select class="form-control" id="bairro">
-                <option value="Vitoria">Vitória</option>
-                <option value="Goania">Goiania</option>
-                <option value="Horto">Horto</option>
-                <option value="SantaTereza">Santa Tereza</option>
-                <option value="Floresta">Floresta</option>
-                <option value="VilaDaLuz">Vila Da Luz</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="aluguel">Informe o valor do aluguel</label>
-            <input class="form-control mr-2" id="aluguel" type="number" min="0" placeholder="Digite o valor do aluguel">
-        </div>
-        <div class="form-group form-inline">
-            <input class="btn btn-primary mr-2" onclick="calendario()" type="button" value="Agendar visita">
+                <div id="imovelCasa" style="display:none" class="form-group">
+                    <label for="salas">Quantas salas de estar?</label>
+                    <input class="form-control mr-2" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
+                    <!--<br>   -->
+                </div>
+                <div class="form-group">
+                    <label for="rua">Informe nome da rua</label>
+                    <input class="form-control mr-2" id="rua" type="text" placeholder="Digite o nome da rua">
+                </div>
+                <div class="form-group">
+                    <label for="numero">Informe número da casa</label>
+                    <input class="form-control mr-2" id="numero" type="number" min="0" max="100000" placeholder="Digite o número da casa">
+                </div>
+                <div class="form-group">
+                    <label "complemento">Informe o complemento para o endereço</label>
+                    <input class="form-control mr-2" id="complemento" type="text" placeholder="Informe o complemento">
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Informe o bairro</label>
+                    <select class="form-control" id="bairro">
+                        <option value="Vitoria">Vitória</option>
+                        <option value="Goania">Goiania</option>
+                        <option value="Horto">Horto</option>
+                        <option value="SantaTereza">Santa Tereza</option>
+                        <option value="Floresta">Floresta</option>
+                        <option value="VilaDaLuz">Vila Da Luz</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="aluguel">Informe o valor do aluguel</label>
+                    <input class="form-control mr-2" id="aluguel" type="number" min="0" placeholder="Digite o valor do aluguel">
+                </div>
+                <div class="form-group form-inline">
+                    <input class="btn btn-primary mr-2" onclick="calendario()" type="button" value="Agendar visita">
             
-            <div class="form-inline" id="calendario" style="display:none">
-                <input class="form-control mr-2" type="date" id="data" name="data">
-                <input class="form-control" type="time" id="hora" name="hora">
-            </div>        
-        </div>
-        <script>
-            function funcao(){
-                var x = document.getElementById("tipoimovel").value;
-                if(x=='Apartamento'){
-                    document.getElementById("imovelAp").style.display  = "block";
-                    document.getElementById("imovelCasa").style.display  = "none";
-                }
-                if(x=='Casa'){
-                    document.getElementById("imovelAp").style.display  = "none";
-                    document.getElementById("imovelCasa").style.display  = "block";
-                }
-            }
-            function calendario(){ 
-                if(document.getElementById("calendario").style.display !== 'none')  
-                    document.getElementById("calendario").style.display  = 'none';
-                else
-                    document.getElementById("calendario").style.display  = 'block';
-            }
-        </script>
+                    <div class="form-inline" id="calendario" style="display:none">
+                        <input class="form-control mr-2" type="date" id="data" name="data">
+                        <input class="form-control" type="time" id="hora" name="hora">
+                    </div>        
+                </div>
+                <script>
+                    function funcao(){
+                        var x = document.getElementById("tipoimovel").value;
+                        if(x=='Apartamento'){
+                            document.getElementById("imovelAp").style.display  = "block";
+                            document.getElementById("imovelCasa").style.display  = "none";
+                        }
+                        if(x=='Casa'){
+                            document.getElementById("imovelAp").style.display  = "none";
+                            document.getElementById("imovelCasa").style.display  = "block";
+                        }
+                    }
+                    function calendario(){ 
+                        if(document.getElementById("calendario").style.display !== 'none')  
+                            document.getElementById("calendario").style.display  = 'none';
+                        else
+                            document.getElementById("calendario").style.display  = 'block';
+                    }
+                      function selectopcao(){
+                        var x = document.getElementById("opcao").value;
+                        if(x=='visualizar'){
+                            document.getElementById("visualizar").style.display  = "block";
+                            document.getElementById("cadatro").style.display  = "none";
+                        }
+                        if(x=='cadatro'){
+                            document.getElementById("visualizar").style.display  = "none";
+                            document.getElementById("cadatro").style.display  = "block";
+                        }
+                    }
+                </script>
 
-        <div class="form-group">
-            <label for="mensagem">Descrição do imóvel</label>
-            <textarea class="form-control" id="mensagem" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
-        <div class="form-group">
-        <br><br>
-    
+                <div class="form-group">
+                    <label for="mensagem">Descrição do imóvel</label>
+                    <textarea class="form-control" id="mensagem" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
+                <div class="form-group">
+                <br><br>
+            </div>
+            <div id="visualizar" style="display:block" class="form-group"> 
+            </div>
+             <script>
+                    function selectopcao(){
+                        var x = document.getElementById("opcao").value;
+                        if(x=='visualizar'){
+                            document.getElementById("visualizar").style.display  = "block";
+                            document.getElementById("cadastrar").style.display  = "none";
+                        }
+                        if(x=='cadatro'){
+                            document.getElementById("visualizar").style.display  = "none";
+                            document.getElementById("cadastrar").style.display  = "block";
+                        }
+                    }
+            </script>
+          </div>
     </form>
 
     <!-- Optional JavaScript -->
