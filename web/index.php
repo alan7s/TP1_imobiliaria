@@ -1,4 +1,7 @@
-﻿﻿<!doctype html>
+﻿<?php
+session_start();
+?>﻿
+<!doctype html>
 <html lang="pt-br">
   <head>
 
@@ -9,14 +12,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <link rel="stylesheet" href="style.css">
 
-
     <script type="text/javascript">
+        function salvar()
+        {
+            var tipoimovel = document.getElementById('tipoimovel').value;
+            var quartos = document.getElementById('quartos').value;
+            var suites = document.getElementById('suites').value;
+            var vagas = document.getElementById('vagas').value;
+            var area = document.getElementById('area').value;
+            var armario = document.getElementById('armario').value;
+            var rua = document.getElementById('rua').value;
+            var numero = document.getElementById('numero').value;
+            var complemento = document.getElementById('complemento').value;
+            var bairro = document.getElementById('bairro').value;
+            var aluguel = document.getElementById('aluguel').value;
+            var data = document.getElementById('data').value;
+            var hora = document.getElementById('hora').value;
+            var mensagem = document.getElementById('mensagem').value;
+            var salas = document.getElementById('salas2').value;
+            var andar = document.getElementById('andar').value;
+            var condominio = document.getElementById('condominio').value;
+            var portaria = document.getElementById('portaria').value;
+        }
+    </script>
+
+    <!--<script type="text/javascript">
         
         
 
@@ -67,13 +92,13 @@
                 });
            }
         }
-    </script>
+    </script>-->
   </head>
 
   <body >
     
    <!--<img src="imagem-fundo.jpg" id="imagem" alt="">-->
-    <form class="containers col-lg-4">
+    <form class="containers col-lg-4" method="POST" action="processa.php" onsubmit="salvar()">
     
          <div class="form-group">
             <label for="opcao">Selecione a opção de cadastro ou visualização</label>
@@ -86,30 +111,30 @@
             <div id="cadastrar" style="display:none" class="form-group"> 
                 <div class="form-group">
                     <label for="tipoimovel">Selecione o tipo do imóvel</label>
-                    <select class="form-control " id="tipoimovel" onChange="funcao()">
+                    <select class="form-control " name="tipoimovel" id="tipoimovel" onChange="funcao()">
                         <option value="Apartamento">Apartamento</option>
                         <option value="Casa">Casa</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="quartos">Quantos quartos?</label>
-                    <input class="form-control mr-2" id="quartos" type="number"  min="0" max="100" placeholder="Digite quantidade de quartos">
+                    <input class="form-control mr-2" name="quartos" id="quartos" type="number"  min="0" max="100" placeholder="Digite quantidade de quartos">
                 </div>
                 <div class="form-group">
                     <label for="suites">Quantas suítes?</label>
-                    <input class="form-control mr-2" id="suites" type="number" min="0" max="100" placeholder="Digite quantidade de suítes">
+                    <input class="form-control mr-2" name="suites" id="suites" type="number" min="0" max="100" placeholder="Digite quantidade de suítes">
                 </div>
                 <div class="form-group">
                     <label for="vagas">Quantas vagas na garagem?</label>
-                    <input class="form-control mr-2" id="vagas" type="number" min="0" max="100" placeholder="Digite quantidade de vagas na garagem">
+                    <input class="form-control mr-2" name="vagas" id="vagas" type="number" min="0" max="100" placeholder="Digite quantidade de vagas na garagem">
                 </div>
                 <div class="form-group">
                     <label for="area">Área total?</label>
-                    <input class="form-control mr-2" id="area" type="number" min="0" max="100" placeholder="Digite área em metros quadrados">
+                    <input class="form-control mr-2" name="area" id="area" type="number" min="0" max="100" placeholder="Digite área em metros quadrados">
                 </div>
                 <div class="form-group">
                     <label for="armario">Possui armário embutido?</label>
-                    <select class="form-control" id="armario">
+                    <select class="form-control" name="armario" id="armario">
                           <option value="S">Sim</option>
                           <option value="N">Não</option>
                     </select>
@@ -120,19 +145,19 @@
                       <!--<form class="form-inline">-->
                       <div class="form-group">
                             <label for="salas">Quantas salas de jantar?</label>
-                            <input class="form-control mr-2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
+                            <input class="form-control mr-2" name="salas2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
                       </div>
                       <div class="form-group">
                             <label for="andar">Qual o andar?</label>
-                            <input class="form-control mr-2" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
+                            <input class="form-control mr-2" name="andar" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
                       </div>
                       <div class="form-group">
                             <label for="condominio">Valor do condominio?</label>
-                            <input class="form-control mr-2" id="condominio" type="number" min="0" max="100" placeholder="Digite o valor do condomínio">
+                            <input class="form-control mr-2" name="condominio" id="condominio" type="number" min="0" max="100" placeholder="Digite o valor do condomínio">
                       </div>
                       <div class="form-group">
                         <label for="portaria">Possui portaria 24 horas?</label>
-                        <select class="form-control" id="portaria">
+                        <select class="form-control" name="portaria" id="portaria">
                             <option value="S">Sim</option>
                             <option value="N">Não</option>
                         </select>
@@ -142,24 +167,24 @@
 
                 <div id="imovelCasa" style="display:none" class="form-group">
                     <label for="salas">Quantas salas de estar?</label>
-                    <input class="form-control mr-2" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
+                    <input class="form-control mr-2" name="salas" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
                     <!--<br>   -->
                 </div>
                 <div class="form-group">
                     <label for="rua">Informe nome da rua</label>
-                    <input class="form-control mr-2" id="rua" type="text" placeholder="Digite o nome da rua">
+                    <input class="form-control mr-2" name="rua" id="rua" type="text" placeholder="Digite o nome da rua">
                 </div>
                 <div class="form-group">
                     <label for="numero">Informe número da casa</label>
-                    <input class="form-control mr-2" id="numero" type="number" min="0" max="100000" placeholder="Digite o número da casa">
+                    <input class="form-control mr-2" name="numero" id="numero" type="number" min="0" max="100000" placeholder="Digite o número da casa">
                 </div>
                 <div class="form-group">
                     <label "complemento">Informe o complemento para o endereço</label>
-                    <input class="form-control mr-2" id="complemento" type="text" placeholder="Informe o complemento">
+                    <input class="form-control mr-2" name="complemento" id="complemento" type="text" placeholder="Informe o complemento">
                 </div>
                 <div class="form-group">
                     <label for="bairro">Informe o bairro</label>
-                    <select class="form-control" id="bairro">
+                    <select class="form-control" name="bairro" id="bairro">
                         <option value="Vitoria">Vitória</option>
                         <option value="Goania">Goiania</option>
                         <option value="Horto">Horto</option>
@@ -170,14 +195,14 @@
                 </div>
                 <div class="form-group">
                     <label for="aluguel">Informe o valor do aluguel</label>
-                    <input class="form-control mr-2" id="aluguel" type="number" min="0" placeholder="Digite o valor do aluguel">
+                    <input class="form-control mr-2" name="aluguel" id="aluguel" type="number" min="0" placeholder="Digite o valor do aluguel">
                 </div>
                 <div class="form-group form-inline">
                     <input class="btn btn-primary mr-2" onclick="calendario()" type="button" value="Agendar visita">
             
                     <div class="form-inline" id="calendario" style="display:none">
-                        <input class="form-control mr-2" type="date" id="data" name="data">
-                        <input class="form-control" type="time" id="hora" name="hora">
+                        <input class="form-control mr-2" type="date" name="data" id="data" name="data">
+                        <input class="form-control" type="time" name="hora" id="hora" name="hora">
                     </div>        
                 </div>
                 <script>
@@ -203,7 +228,7 @@
 
                 <div class="form-group">
                     <label for="mensagem">Descrição do imóvel</label>
-                    <textarea class="form-control" id="mensagem" rows="3"></textarea>
+                    <textarea class="form-control" name="mensagem" id="mensagem" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
