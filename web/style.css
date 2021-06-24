@@ -6,13 +6,46 @@
 	font-family: sans-serif;
 	font-size: 14px;
 }
+
 body{
-	width: 100%;
-	min-height: 100vh;
-	background-color: rgb(243,243,243);
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
+	
+	  background: url(imagem-fundo.jpg) no-repeat center center fixed;
+	  background-size: cover;
+	  height: 100%;
+	  
 }
 
+/*#imagem{
+	  position: fixed; 
+	  top: -50%; 
+	  left: -50%; 
+	  width: 200%; 
+	  height: 200%;
+}
+
+#imagem img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}*/
+
+.containers{
+	padding-top: 19px;
+	margin-right: auto;
+	margin-left: auto;
+	align-items: center;
+	border-radius: 15px;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	background-color: #ffffff;	
+}
+
+label{
+   font-size: 18px;
+}
