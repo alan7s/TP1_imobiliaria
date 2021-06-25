@@ -2,7 +2,7 @@
 
 include_once("conexao.php");
 
-echo "<table border=2";
+echo "<table border=8";
 echo "<tr>";
 echo "<th>TipoImovel</th>";
 echo "<th>Quartos</th>";

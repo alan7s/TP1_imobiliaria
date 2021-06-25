@@ -190,6 +190,10 @@ session_start();
                         if(x=='cadastro'){
                             document.getElementById("visualizar").style.display  = "none";
                             document.getElementById("cadastrar").style.display  = "block";
+                            input = document.getElementById("cadastrar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = true;
+                            }
                         }
                     }
                     function funcao(){
