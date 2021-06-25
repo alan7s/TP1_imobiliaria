@@ -36,7 +36,7 @@ while ($row_imovel = mysqli_fetch_array($resultado_imovel))  {
 		$rua=$row_imovel['rua'];$numero=$row_imovel['numero'];
 		$complemento=$row_imovel['complemento'];$bairro=$row_imovel['bairro'];
 		$aluguel=$row_imovel['aluguel'];$data=$row_imovel['data'];$hora=$row_imovel['hora'];
-		$mensagem=$row_imovel['mensagem'];$salas2=$row_imovel['salas2'];
+		$mensagem=$row_imovel['mensagem'];$salas=$row_imovel['salas'];
 		$andar=$row_imovel['andar'];$condominio=$row_imovel['condominio'];
 		$portaria=$row_imovel['portaria'];
 
@@ -55,7 +55,7 @@ while ($row_imovel = mysqli_fetch_array($resultado_imovel))  {
 		echo "<td>".$data."</td>";
 		echo "<td>".$hora."</td>";
 		echo "<td>".$mensagem."</td>";
-		echo "<td>".$salas2."</td>";
+		echo "<td>".$salas."</td>";
 		echo "<td>".$andar."</td>";
 		echo "<td>".$condominio."</td>";
 		echo "<td>".$portaria."</td>";
