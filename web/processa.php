@@ -24,7 +24,7 @@ if($tipoImovel == 'Apartamento'){
 	$andar = filter_input(INPUT_POST, 'andar', FILTER_SANITIZE_NUMBER_INT);
 	$condominio = filter_input(INPUT_POST, 'condominio', FILTER_SANITIZE_NUMBER_INT);
 	$portaria = filter_input(INPUT_POST, 'portaria', FILTER_SANITIZE_STRING);
-	$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas2,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas2','$andar','$condominio','$portaria')";
+	$result_usuario = "INSERT INTO imobiliariaAP (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas2,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas2','$andar','$condominio','$portaria')";
 }else if($tipoImovel == 'Casa'){
 	$salas = filter_input(INPUT_POST, 'salas', FILTER_SANITIZE_NUMBER_INT);
 	$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas2,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas')";
