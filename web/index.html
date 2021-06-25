@@ -1,4 +1,4 @@
-﻿﻿<?php
+﻿<?php
 session_start();
 ?>﻿
 <!doctype html>
@@ -10,7 +10,7 @@ session_start();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -20,6 +20,7 @@ session_start();
     <script type="text/javascript">
         function salvar()
         {
+            var opcao = document.getElementById('opcao').value;
             var tipoimovel = document.getElementById('tipoimovel').value;
             var quartos = document.getElementById('quartos').value;
             var suites = document.getElementById('suites').value;
@@ -34,77 +35,26 @@ session_start();
             var data = document.getElementById('data').value;
             var hora = document.getElementById('hora').value;
             var mensagem = document.getElementById('mensagem').value;
-            var salas = document.getElementById('salas').value;
+            var salas = document.getElementById('salas2').value;
             var andar = document.getElementById('andar').value;
             var condominio = document.getElementById('condominio').value;
             var portaria = document.getElementById('portaria').value;
+            
         }
     </script>
 
-    <!--<script type="text/javascript">
-        
-        
-
-        var db = openDatabase("Imobiliaria","2.0","Mybase",4048);
-        
-        db.transaction(function(criar)
-        {
-           //criar.executeSql("DROP TABLE casa");
-           //criar.executeSql("DROP TABLE apartamento");
-           criar.executeSql("CREATE TABLE casa (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGER, vagas INTEGER, area INTEGER, armario TEXT, salas INTEGER, rua TEXT, numero INTEGER, complemento TEXT,bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
-           criar.executeSql("CREATE TABLE apartamento (ID INTEGER PRIMARY KEY, tipoimovel TEXT, quartos INTEGER, suites INTEGE, vagas INTEGER, area INTEGER, armario TEXT,salas INTEGER, andar INTEGER, condominio INTEGER, portaria TEXT, rua TEXT, numero INTEGER, complemento TEXT, bairro TEXT, aluguel REAL, mensagem TEXT, data TEXT, hora TEXT)");
-        });
-       
-        function salvar()
-        {
-            var tipoimovel = document.getElementById('tipoimovel').value;
-            var quartos = document.getElementById('quartos').value;
-            var suites = document.getElementById('suites').value;
-            var vagas = document.getElementById('vagas').value;
-            var area = document.getElementById('area').value;
-            var armario = document.getElementById('armario').value;
-            var rua = document.getElementById('rua').value;
-            var numero = document.getElementById('numero').value;
-            var complemento = document.getElementById('complemento').value;
-            var bairro = document.getElementById('bairro').value;
-            var aluguel = document.getElementById('aluguel').value;
-            var data = document.getElementById('data').value;
-            var hora = document.getElementById('hora').value;
-            var mensagem = document.getElementById('mensagem').value;
-            if(document.getElementById('tipoimovel').value == 'Casa')
-            {
-                var salas = document.getElementById('salas').value;
-                db.transaction(function(armazenar)
-                {
-                 armazenar.executeSql("INSERT INTO casa(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,data,hora) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,data,hora]);
-                });
-
-           }
-           else if(document.getElementById('tipoimovel').value == 'Apartamento')
-           {
-                var salas = document.getElementById('salas2').value;
-                var andar = document.getElementById('andar').value;
-                var condominio = document.getElementById('condominio').value;
-                var portaria = document.getElementById('portaria').value;
-                db.transaction(function(armazenar)
-                {
-                 armazenar.executeSql("INSERT INTO apartamento(tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,andar,condominio,portaria,data,hora) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[tipoimovel,quartos,suites,vagas,area,armario,rua,numero,complemento,bairro,aluguel,mensagem,salas,andar,condominio,portaria,data,hora]);
-                });
-           }
-        }
-    </script>-->
   </head>
 
   <body >
     
    <!--<img src="imagem-fundo.jpg" id="imagem" alt="">-->
-    <form class="containers col-lg-4" method="POST" action="processa.php" onsubmit="salvar()">
+    <form class="containers col-lg-4" method="POST" action="processa.php" onsubmit="salvar()" >
     
-         <div class="form-group">
+            <div class="form-group">
             <label for="opcao">Selecione a opção de cadastro ou visualização</label>
-            <select class="form-control " id="opcao" onChange="selectopcao()">
+            <select class="form-control " name= "opcao" id="opcao" onChange="selectopcao()">
                 <option selected disabled hidden style='display: none' value=''></option> 
-                <option  value="cadatro">Cadastrar imóvel</option>
+                <option  value="cadastro">Cadastrar imóvel</option>
                 <option  value="visualizar">Visualizar imóveis cadastrados</option>
             </select>
         
@@ -178,7 +128,7 @@ session_start();
                     <input class="form-control mr-2" name="numero" id="numero" type="number" min="0" placeholder="Digite o número da casa">
                 </div>
                 <div class="form-group">
-                    <label "complemento">Informe o complemento para o endereço</label>
+                    <label for = "complemento">Informe o complemento para o endereço</label>
                     <input class="form-control mr-2" name="complemento" id="complemento" type="text" placeholder="Informe o complemento">
                 </div>
                 <div class="form-group">
@@ -204,7 +154,39 @@ session_start();
                         <input class="form-control" type="time" name="hora" id="hora">
                     </div>        
                 </div>
-                <script>
+               
+
+                <div class="form-group">
+                    <label for="mensagem">Descrição do imóvel</label>
+                    <textarea class="form-control" name="mensagem" id="mensagem" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
+                </div>
+                <br><br>
+            </div>
+            <div id="visualizar" style="display:none" class="form-group">
+                
+                   <div class="form-group">
+                        <br>
+                         <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Consultar">
+                   </div>
+                   
+            </div>
+             
+            
+             <script>
+                    function selectopcao(){
+                        var x = document.getElementById("opcao").value;
+                        if(x=='visualizar'){
+                            document.getElementById("visualizar").style.display  = "block";
+                            document.getElementById("cadastrar").style.display  = "none";
+                        }
+                        if(x=='cadastro'){
+                            document.getElementById("visualizar").style.display  = "none";
+                            document.getElementById("cadastrar").style.display  = "block";
+                        }
+                    }
                     function funcao(){
                         var x = document.getElementById("tipoimovel").value;
                         if(x=='Apartamento'){
@@ -221,35 +203,12 @@ session_start();
                             document.getElementById("calendario").style.display  = 'none';
                         else
                             document.getElementById("calendario").style.display  = 'block';
-                    }    
-                 
-                </script>
-
-                <div class="form-group">
-                    <label for="mensagem">Descrição do imóvel</label>
-                    <textarea class="form-control" name="mensagem" id="mensagem" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <input class="btn btn-primary" onclick= "salvar()" type="submit" value="Salvar">
-                <div class="form-group">
-                <br><br>
-            </div>
-            <div id="visualizar" style="display:block" class="form-group"> 
-            </div>
-             <script>
-                    function selectopcao(){
-                        var x = document.getElementById("opcao").value;
-                        if(x=='visualizar'){
-                            document.getElementById("visualizar").style.display  = "block";
-                            document.getElementById("cadastrar").style.display  = "none";
-                        }
-                        if(x=='cadatro'){
-                            document.getElementById("visualizar").style.display  = "none";
-                            document.getElementById("cadastrar").style.display  = "block";
-                        }
-                    }
+                    }   
+                  
             </script>
-          </div>
+            
+           
+        </div>
     </form>
 
     <!-- Optional JavaScript -->
