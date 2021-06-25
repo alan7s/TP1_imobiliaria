@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 session_start();
 ?>﻿
 <!doctype html>
@@ -34,7 +34,8 @@ session_start();
             var data = document.getElementById('data').value;
             var hora = document.getElementById('hora').value;
             var mensagem = document.getElementById('mensagem').value;
-            var salas = document.getElementById('salas2').value;
+            var salasjantar = document.getElementById('salasjantar').value;
+            var salasestar = document.getElementById('salasestar').value;
             var andar = document.getElementById('andar').value;
             var condominio = document.getElementById('condominio').value;
             var portaria = document.getElementById('portaria').value;
@@ -144,8 +145,8 @@ session_start();
                 <div id="imovelAp" style="display:block" class="form-group"> 
                       <!--<form class="form-inline">-->
                       <div class="form-group">
-                            <label for="salas">Quantas salas de jantar?</label>
-                            <input class="form-control mr-2" name="salas2" id="salas2" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
+                            <label for="salasjantar">Quantas salas de jantar?</label>
+                            <input class="form-control mr-2" name="salasjantar" id="salasjantar" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
                       </div>
                       <div class="form-group">
                             <label for="andar">Qual o andar?</label>
@@ -166,8 +167,8 @@ session_start();
                 </div>
 
                 <div id="imovelCasa" style="display:none" class="form-group">
-                    <label for="salas">Quantas salas de estar?</label>
-                    <input class="form-control mr-2" name="salas" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
+                    <label for="salasestar">Quantas salas de estar?</label>
+                    <input class="form-control mr-2" name="salasestar" id="salasestar" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
                     <!--<br>   -->
                 </div>
                 <div class="form-group">
