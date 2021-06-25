@@ -20,12 +20,12 @@ $hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
 $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
 
 //if($tipoImovel == 'Apartamento'){
-	$salasjanter = filter_input(INPUT_POST, 'salasjantar', FILTER_SANITIZE_NUMBER_INT);
-	$salasestar = filter_input(INPUT_POST, 'salasestar', FILTER_SANITIZE_NUMBER_INT);
-	$andar = filter_input(INPUT_POST, 'andar', FILTER_SANITIZE_NUMBER_INT);
-	$condominio = filter_input(INPUT_POST, 'condominio', FILTER_SANITIZE_NUMBER_INT);
-	$portaria = filter_input(INPUT_POST, 'portaria', FILTER_SANITIZE_STRING);
-	$result_usuario = "INSERT INTO imobiliariaAP (tipoimovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas,andar,condominio,portaria) VALUES ('$tipoimovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salasjantar','$salasestar','$andar','$condominio','$portaria')";
+	$salas = filter_input(INPUT_POST, 'salas', FILTER_SANITIZE_NUMBER_INT);
+	$andar = filter_input(INPUT_POST, 'andar', FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE);
+	$condominio = filter_input(INPUT_POST, 'condominio', FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE);
+	$portaria = filter_input(INPUT_POST, 'portaria', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+	$result_usuario = "INSERT INTO imobiliariaAP (tipoimovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas,andar,condominio,portaria) VALUES ('$tipoimovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas','$andar','$condominio','$portaria')";
+	//PRECISA ARRUMAR.. ANDAR CONDOMINIO E PORTARIA PRECISAM TER VALOR NULL PRA CADASTRAR CASA!
 /*}else if($tipoImovel == 'Casa'){
 	$salas = filter_input(INPUT_POST, 'salas', FILTER_SANITIZE_NUMBER_INT);
 	$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas2,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas')";

@@ -34,8 +34,7 @@ session_start();
             var data = document.getElementById('data').value;
             var hora = document.getElementById('hora').value;
             var mensagem = document.getElementById('mensagem').value;
-            var salasjantar = document.getElementById('salasjantar').value;
-            var salasestar = document.getElementById('salasestar').value;
+            var salas = document.getElementById('salas').value;
             var andar = document.getElementById('andar').value;
             var condominio = document.getElementById('condominio').value;
             var portaria = document.getElementById('portaria').value;
@@ -140,14 +139,14 @@ session_start();
                           <option value="N">Não</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="salas">Quantas salas?</label>
+                    <input class="form-control mr-2" name="salas" id="salas" type="number" min="0" max="100" placeholder="Digite quantidade de salas">
+                </div>
         
         
                 <div id="imovelAp" style="display:block" class="form-group"> 
                       <!--<form class="form-inline">-->
-                      <div class="form-group">
-                            <label for="salasjantar">Quantas salas de jantar?</label>
-                            <input class="form-control mr-2" name="salasjantar" id="salasjantar" type="number" min="0" max="100" placeholder="Digite quantidade de salas de jantar">
-                      </div>
                       <div class="form-group">
                             <label for="andar">Qual o andar?</label>
                             <input class="form-control mr-2" name="andar" id="andar" type="number" min="0" max="100" placeholder="Informe o andar do apartamento">
@@ -165,18 +164,17 @@ session_start();
                       </div>
                       <!--</form>-->
                 </div>
-
+                
                 <div id="imovelCasa" style="display:none" class="form-group">
-                    <label for="salasestar">Quantas salas de estar?</label>
-                    <input class="form-control mr-2" name="salasestar" id="salasestar" type="number" min="0" max="100" placeholder="Digite quantidade de salas de estar">
                     <!--<br>   -->
                 </div>
+
                 <div class="form-group">
                     <label for="rua">Informe nome da rua</label>
                     <input class="form-control mr-2" name="rua" id="rua" type="text" placeholder="Digite o nome da rua">
                 </div>
                 <div class="form-group">
-                    <label for="numero">Informe número da casa</label>
+                    <label for="numero">Informe número da residência</label>
                     <input class="form-control mr-2" name="numero" id="numero" type="number" min="0" placeholder="Digite o número da casa">
                 </div>
                 <div class="form-group">
