@@ -39,6 +39,8 @@ session_start();
             var andar = document.getElementById('andar').value;
             var condominio = document.getElementById('condominio').value;
             var portaria = document.getElementById('portaria').value;
+            var data1 = document.getElementById('data1').value;
+            var hora1 = document.getElementById('hora1').value;
             
         }
     </script>
@@ -56,6 +58,7 @@ session_start();
                 <option selected disabled hidden style='display: none' value=''></option> 
                 <option  value="cadastro">Cadastrar imóvel</option>
                 <option  value="visualizar">Visualizar imóveis cadastrados</option>
+                <option value="agendar">Agendamento de visita</option>
             </select>
         
             <div id="cadastrar" style="display:none" class="form-group"> 
@@ -174,6 +177,21 @@ session_start();
                    </div>
                    
             </div>
+            <div id="agendar" style="display:none" class="form-group">
+                
+                <div class="form-group">
+                    <br>
+                   <div class="form-group form-inline">
+                       <br><br>
+                        <input class="btn btn-primary" onclick= "salvar()" type="submit"   value="Agendar visita">
+                        <div class="form-inline" id="calendario">
+                            <input class="form-control mr-2" type="date" name="data1" id="data1">
+                            <input class="form-control" type="time" name="hora1" id="hora1">
+                        </div>        
+                    </div>
+                   </div>
+                   
+            </div>
              
             
              <script>
@@ -182,6 +200,7 @@ session_start();
                         if(x=='visualizar'){
                             document.getElementById("visualizar").style.display  = "block";
                             document.getElementById("cadastrar").style.display  = "none";
+                            document.getElementById("agendar").style.display  = "none";
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = false;
@@ -190,9 +209,19 @@ session_start();
                         if(x=='cadastro'){
                             document.getElementById("visualizar").style.display  = "none";
                             document.getElementById("cadastrar").style.display  = "block";
+                            document.getElementById("agendar").style.display  = "none";;
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = true;
+                            }
+                        }
+                        if(x=='agendar'){
+                            document.getElementById("visualizar").style.display  = "none";
+                            document.getElementById("cadastrar").style.display  = "none";
+                            document.getElementById("agendar").style.display  = "block";
+                            input = document.getElementById("cadastrar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = false;
                             }
                         }
                     }
