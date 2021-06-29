@@ -19,8 +19,8 @@ if ($opcao =='cadastro')
 	$complemento = filter_input(INPUT_POST, 'complemento', FILTER_SANITIZE_STRING);
 	$bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_STRING);
 	$aluguel = filter_input(INPUT_POST, 'aluguel', FILTER_SANITIZE_NUMBER_INT);
-	$data = filter_input(INPUT_POST, 'data', FILTER_SANITIZE_STRING);
-	$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
+	//$data = filter_input(INPUT_POST, 'data', FILTER_SANITIZE_STRING);
+	//$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
 	$mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
 	$salas = filter_input(INPUT_POST, 'salas', FILTER_SANITIZE_NUMBER_INT);
 
@@ -28,7 +28,7 @@ if ($opcao =='cadastro')
 	$andar = filter_input(INPUT_POST, 'andar', FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE);
 	$condominio = filter_input(INPUT_POST, 'condominio', FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE);
 	$portaria = filter_input(INPUT_POST, 'portaria', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
-	$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas','$andar','$condominio','$portaria')";
+	$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, mensagem,salas,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$mensagem','$salas','$andar','$condominio','$portaria')";
 		//PRECISA ARRUMAR.. ANDAR CONDOMINIO E PORTARIA PRECISAM TER VALOR NULL PRA CADASTRAR CASA!
 	/*}else if($tipoImovel == 'Casa'){
 		$result_usuario = "INSERT INTO imobiliaria (tipoImovel,quartos, suites, vagas, area,armario, rua, numero, complemento,bairro, aluguel, data, hora, mensagem,salas,andar,condominio,portaria) VALUES ('$tipoImovel','$quartos', '$suites','$vagas', '$area','$armario','$rua','$numero','$complemento','$bairro','$aluguel','$data','$hora','$mensagem','$salas','0','0','N')";
@@ -37,81 +37,34 @@ if ($opcao =='cadastro')
 	$resultado_usuario = mysqli_query($conn, $result_usuario);
 
 	if(mysqli_insert_id($conn)){
-		$_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso</p>";
+		$_SESSION['msg'] = "<p style='color:green;'>Imóvel cadastrado com sucesso</p>";
 		header("Location: index.html");
 	}else{
-		$_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado com sucesso</p>";
+		$_SESSION['msg'] = "<p style='color:red;'>Imóvel não foi cadastrado com sucesso</p>";
 		header("Location: index.html");
 	}
+	 mysqli_close($conn);
 }
 else if($opcao == 'visualizar')
 {
 	include_once("consulta.php");
 }
 else if($opcao == 'agendar'){
-    $data1 = filter_input(INPUT_POST, 'data1', FILTER_SANITIZE_STRING);
-	$hora1 = filter_input(INPUT_POST, 'hora1', FILTER_SANITIZE_STRING);
-    echo "<table border=10";
-    echo "<tr>";
-    echo "<th>TipoImovel</th>";
-    echo "<th>Quartos</th>";
-    echo "<th>Suites</th>";
-    echo "<th>Vagas</th>";
-    echo "<th>Area</th>";
-    echo "<th>Armario</th>";
-    echo "<th>Rua</th>";
-    echo "<th>Numero</th>";
-    echo "<th>Complemento</th>";
-    echo "<th>Bairro</th>";
-    echo "<th>Aluguel</th>";
-    echo "<th>Data</th>";
-    echo "<th>Hora</th>";
-    echo "<th>Mensagem</th>";
-    echo "<th>Salas Jantar/Estar</th>";
-    echo "<th>Andar</th>";
-    echo "<th>Comdominio</th>";
-    echo "<th>Portaria</th>";
-    echo "</tr>";
+    $data = filter_input(INPUT_POST, 'data', FILTER_SANITIZE_STRING);
+	$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
+	$imovelid = filter_input(INPUT_POST, 'imovelid', FILTER_SANITIZE_NUMBER_INT);
+
+    $result_imovel1 = "INSERT INTO visita (imovelid,data, hora) VALUES ('$imovelid','$data', '$hora')";
     
-    $result_imovel = "SELECT * FROM imobiliaria WHERE '$data1' = data";
-    
-    $resultado_imovel = mysqli_query($conn,$result_imovel) or die("Error ao tentar cadastrar registro");
-    
-    while ($row_imovel = mysqli_fetch_array($resultado_imovel))  {
-    
-    		$tipoImovel =$row_imovel['tipoImovel'];$quartos=$row_imovel['quartos'];
-    		$suites=$row_imovel['suites'];$vagas=$row_imovel['vagas'];
-    		$area=$row_imovel['area'];$armario=$row_imovel['armario'];
-    		$rua=$row_imovel['rua'];$numero=$row_imovel['numero'];
-    		$complemento=$row_imovel['complemento'];$bairro=$row_imovel['bairro'];
-    		$aluguel=$row_imovel['aluguel'];$data=$row_imovel['data'];$hora=$row_imovel['hora'];
-    		$mensagem=$row_imovel['mensagem'];$salas=$row_imovel['salas'];
-    		$andar=$row_imovel['andar'];$condominio=$row_imovel['condominio'];
-    		$portaria=$row_imovel['portaria'];
-    
-    		echo "<tr>";
-    		echo "<td>".$tipoImovel."</td>";
-    		echo "<td>".$quartos."</td>";
-    		echo "<td>".$suites."</td>";
-    		echo "<td>".$vagas."</td>";
-    		echo "<td>".$area."</td>";
-    		echo "<td>".$armario."</td>";
-    		echo "<td>".$rua."</td>";
-    		echo "<td>".$numero."</td>";
-    		echo "<td>".$complemento."</td>";
-    		echo "<td>".$bairro."</td>";
-    		echo "<td>".$aluguel."</td>";
-    		echo "<td>".$data."</td>";
-    		echo "<td>".$hora."</td>";
-    		echo "<td>".$mensagem."</td>";
-    		echo "<td>".$salas."</td>";
-    		echo "<td>".$andar."</td>";
-    		echo "<td>".$condominio."</td>";
-    		echo "<td>".$portaria."</td>";
-    		echo "</tr>";
-    	
-    }
+    $resultado_imovel1 = mysqli_query($conn,$result_imovel1) or die("Error ao tentar cadastrar registro");
+	
+	if(mysqli_insert_id($conn)){
+		$_SESSION['msg'] = "<p style='color:green;'>Visita cadastrada com sucesso</p>";
+		header("Location: index.html");
+	}else{
+		$_SESSION['msg'] = "<p style='color:red;'>Visita não foi cadastrada com sucesso</p>";
+		header("Location: index.html");
+	}
     mysqli_close($conn);
-    echo "</table>";
 }
 ?>

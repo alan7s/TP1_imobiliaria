@@ -39,8 +39,7 @@ session_start();
             var andar = document.getElementById('andar').value;
             var condominio = document.getElementById('condominio').value;
             var portaria = document.getElementById('portaria').value;
-            var data1 = document.getElementById('data1').value;
-            var hora1 = document.getElementById('hora1').value;
+            var imovelid = document.getElementById('imovelid').value;
             
         }
     </script>
@@ -150,14 +149,14 @@ session_start();
                     <label for="aluguel">Informe o valor do aluguel</label>
                     <input class="form-control mr-2" name="aluguel" id="aluguel" required type="number" min="0" placeholder="Digite o valor do aluguel">
                 </div>
-                <div class="form-group form-inline">
+                <!--<div class="form-group form-inline">
                     <input class="btn btn-primary mr-2" onclick="calendario()" type="button" value="Agendar visita">
             
                     <div class="form-inline" id="calendario" style="display:none">
                         <input class="form-control mr-2" type="date" name="data" id="data">
                         <input class="form-control" type="time" name="hora" id="hora">
                     </div>        
-                </div>
+                </div>-->
                
 
                 <div class="form-group">
@@ -185,9 +184,10 @@ session_start();
                        <br><br>
                         <input class="btn btn-primary" onclick= "salvar()" type="submit"   value="Agendar visita">
                         <div class="form-inline" id="calendario">
-                            <input class="form-control mr-2" type="date" name="data1" id="data1">
-                            <input class="form-control" type="time" name="hora1" id="hora1">
-                        </div>        
+                            <input class="form-control mr-2" name="imovelid" id="imovelid" type="number" min="1" placeholder="ID do imóvel">
+                            <input class="form-control mr-2" type="date" name="data" id="data">
+                            <input class="form-control" type="time" name="hora" id="hora">
+                        </div>      
                     </div>
                    </div>
                    
