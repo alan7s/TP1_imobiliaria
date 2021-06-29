@@ -20,7 +20,7 @@
 
 		include_once("conexao.php");
 
-		echo "<table class='table table-sm'>";
+		echo "<table class='table table-hover'>";
 		echo "<tr>";
 		echo "<td>Imóveis cadastrados</td>";
 		echo "<td></td>";
@@ -61,7 +61,8 @@
 		echo "<th>Comdominio</th>";
 		echo "<th>Portaria</th>";
 		echo "</tr>";
-
+        
+        
 		$result_imovel = "SELECT * FROM imobiliaria";
 
 		$resultado_imovel = mysqli_query($conn,$result_imovel) or die("Error ao tentar buscar registro");
@@ -77,8 +78,8 @@
 				$mensagem=$row_imovel['mensagem'];$salas=$row_imovel['salas'];
 				$andar=$row_imovel['andar'];$condominio=$row_imovel['condominio'];
 				$portaria=$row_imovel['portaria'];
-
-				echo "<tr>";
+                echo "<div class='containers2 col-lg'>";
+                echo "<tr>";
 				echo "<td>".$ID."</td>";
 				echo "<td>".$tipoImovel."</td>";
 				echo "<td>".$quartos."</td>";
@@ -102,7 +103,7 @@
 	
 		}
 		echo "</table>";
-		echo "<table class='table table-sm'>";
+		echo "<table class='table table-hover table-dark'>";
 		echo "<tr>";
 		echo "<td>Visitas agendadas</td>";
 		echo "<td></td>";
@@ -124,14 +125,14 @@
 				
 				echo "<tr>";
 				echo "<td>".$imovelid."</td>";
-				echo "<td>".$data."</td>";
+				echo "<td>".date("d/m/Y", strtotime($data))."</td>";
 				echo "<td>".$hora."</td>";
 				echo "</tr>";
 	
 		}
 		mysqli_close($conn);
 		echo "</table>";
-
+        echo "</div>";
 		?>
     </div>
 </body>

@@ -49,22 +49,34 @@ else if($opcao == 'visualizar')
 {
 	include_once("consulta.php");
 }
-else if($opcao == 'agendar'){
+else if($opcao == 'agendar')
+{
     $data = filter_input(INPUT_POST, 'data', FILTER_SANITIZE_STRING);
 	$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
 	$imovelid = filter_input(INPUT_POST, 'imovelid', FILTER_SANITIZE_NUMBER_INT);
-
-    $result_imovel1 = "INSERT INTO visita (imovelid,data, hora) VALUES ('$imovelid','$data', '$hora')";
+    $result_imovel2 = "SELECT * FROM imobiliaria WHERE $imovelid = ID";
+    $resultado_imovel2 = mysqli_query($conn,$result_imovel2) or die("Error ao tentar cadastrar registro 2");
+    $num_rows = mysqli_num_rows($resultado_imovel2);
+    if( $num_rows > 0)
+    {
     
-    $resultado_imovel1 = mysqli_query($conn,$result_imovel1) or die("Error ao tentar cadastrar registro");
-	
-	if(mysqli_insert_id($conn)){
-		$_SESSION['msg'] = "<p style='color:green;'>Visita cadastrada com sucesso</p>";
-		header("Location: index.php");
-	}else{
-		$_SESSION['msg'] = "<p style='color:red;'>Visita não foi cadastrada com sucesso</p>";
-		header("Location: index.php");
-	}
+        $result_imovel1 = "INSERT INTO visita (imovelid,data, hora) VALUES ('$imovelid','$data', '$hora')";
+        
+        $resultado_imovel1 = mysqli_query($conn,$result_imovel1) or die("Error ao tentar cadastrar registro");
+    	
+    	if(mysqli_insert_id($conn)){
+    		$_SESSION['msg'] = "<p style='color:green;'>Visita cadastrada com sucesso</p>";
+    		header("Location: index.php");
+    	}else{
+    		$_SESSION['msg'] = "<p style='color:red;'>Visita não foi cadastrada com sucesso</p>";
+    		header("Location: index.php");
+    	}
+    }
+    else
+    {
+        	$_SESSION['msg'] = "<p style='color:red;'>ID do ímovel nao existe</p>";
+        	header("Location: index.php");
+    }   
     mysqli_close($conn);
 }
 ?>

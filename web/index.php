@@ -184,9 +184,9 @@ session_start();
                        <br><br>
                         <input class="btn btn-primary" onclick= "salvar()" type="submit"   value="Agendar visita">
                         <div class="form-inline" id="calendario">
-                            <input class="form-control mr-2" name="imovelid" id="imovelid" type="number" min="1" placeholder="ID do imóvel">
-                            <input class="form-control mr-2" type="date" name="data" id="data">
-                            <input class="form-control" type="time" name="hora" id="hora">
+                            <input class="form-control mr-2" name="imovelid" id="imovelid" required type="number" min="1" placeholder="ID do imóvel">
+                            <input class="form-control mr-2" type="date" name="data" id="data" required>
+                            <input class="form-control" type="time" name="hora" id="hora" required>
                         </div>
                     </div>
                    </div>
@@ -205,6 +205,10 @@ session_start();
                             for(i = 0; i < input.length; i++){
                                 input[i].required = false;
                             }
+                            input = document.getElementById("agendar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = false;
+                            }
                         }
                         if(x=='cadastro'){
                             document.getElementById("visualizar").style.display  = "none";
@@ -214,6 +218,10 @@ session_start();
                             for(i = 0; i < input.length; i++){
                                 input[i].required = true;
                             }
+                            input = document.getElementById("agendar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = false;
+                            }
                         }
                         if(x=='agendar'){
                             document.getElementById("visualizar").style.display  = "none";
@@ -222,6 +230,10 @@ session_start();
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = false;
+                            }
+                            input = document.getElementById("agendar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = true;
                             }
                         }
                     }
