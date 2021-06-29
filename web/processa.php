@@ -38,10 +38,10 @@ if ($opcao =='cadastro')
 
 	if(mysqli_insert_id($conn)){
 		$_SESSION['msg'] = "<p style='color:green;'>Imóvel cadastrado com sucesso</p>";
-		header("Location: index.html");
+		header("Location: index.php");
 	}else{
 		$_SESSION['msg'] = "<p style='color:red;'>Imóvel não foi cadastrado com sucesso</p>";
-		header("Location: index.html");
+		header("Location: index.php");
 	}
 	 mysqli_close($conn);
 }
@@ -60,10 +60,10 @@ else if($opcao == 'agendar'){
 	
 	if(mysqli_insert_id($conn)){
 		$_SESSION['msg'] = "<p style='color:green;'>Visita cadastrada com sucesso</p>";
-		header("Location: index.html");
+		header("Location: index.php");
 	}else{
 		$_SESSION['msg'] = "<p style='color:red;'>Visita não foi cadastrada com sucesso</p>";
-		header("Location: index.html");
+		header("Location: index.php");
 	}
     mysqli_close($conn);
 }

@@ -1,6 +1,6 @@
 ﻿<?php
 session_start();
-?>﻿
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -49,9 +49,9 @@ session_start();
   <body >
     
    <!--<img src="imagem-fundo.jpg" id="imagem" alt="">-->
+   
     <form class="containers col-lg-4" method="POST" action="processa.php" onsubmit="salvar()" >
-    
-            <div class="form-group">
+        <div class="form-group">
             <label for="opcao">Selecione a opção de cadastro ou visualização</label>
             <select class="form-control " name= "opcao" id="opcao" onChange="selectopcao()">
                 <option selected disabled hidden style='display: none' value=''></option> 
@@ -187,7 +187,7 @@ session_start();
                             <input class="form-control mr-2" name="imovelid" id="imovelid" type="number" min="1" placeholder="ID do imóvel">
                             <input class="form-control mr-2" type="date" name="data" id="data">
                             <input class="form-control" type="time" name="hora" id="hora">
-                        </div>      
+                        </div>
                     </div>
                    </div>
                    
@@ -247,6 +247,11 @@ session_start();
             
            
         </div>
+        <?php
+            if(isset($_SESSION['msg']))
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        ?>
     </form>
 
     <!-- Optional JavaScript -->
