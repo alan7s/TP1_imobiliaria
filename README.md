@@ -5,4 +5,7 @@ Sistema disponível online funcionando em https://champion-continuity.000webhost
 
 Caso queira testar em máquina local, use o arquivo bd.sql para criar o banco de dados e modifique o arquivo "conexao.php" para configurar o banco.
 
-Grupo 3: Alan Ferreira, Pedro Henrique Ribeiro, Fernando Faria Soares.
+Grupo 3
+Alan Ferreira Leite Santos 201722040335
+Pedro Henrique Ribeiro 201722040360
+Fernando Faria Soares 201622040457
