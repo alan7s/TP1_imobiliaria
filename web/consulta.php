@@ -78,7 +78,7 @@
 				$mensagem=$row_imovel['mensagem'];$salas=$row_imovel['salas'];
 				$andar=$row_imovel['andar'];$condominio=$row_imovel['condominio'];
 				$portaria=$row_imovel['portaria'];
-                echo "<div class='containers2 col-lg'>";
+                //echo "<div class='containers2 col-lg'>";
                 echo "<tr>";
 				echo "<td>".$ID."</td>";
 				echo "<td>".$tipoImovel."</td>";

@@ -19,7 +19,7 @@
 <?php
 
         include_once("conexao.php");
-        echo "</table>";
+        //echo "</table>";
 		echo "<table class='table table-hover'>";
 		echo "<tr>";
 		echo "<td>Visitas agendadas</td>";

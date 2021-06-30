@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Tempo de geração: 29-Jun-2021 às 19:52
+-- Tempo de geração: 30-Jun-2021 às 12:27
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.23
 
@@ -55,21 +55,15 @@ CREATE TABLE `imobiliaria` (
 --
 
 INSERT INTO `imobiliaria` (`tipoImovel`, `quartos`, `suites`, `vagas`, `area`, `armario`, `rua`, `numero`, `complemento`, `bairro`, `aluguel`, `mensagem`, `salas`, `andar`, `condominio`, `portaria`, `ID`) VALUES
-('Apartamento', 1, 1, 1, 1, 'S', '1', 1, '1', 'Horto', 11, 'dasd', 1, 1, 1, 'S', 1),
-('Apartamento', 2, 2, 2, 2, 'S', '2', 2, '2', 'Horto', 2, '2222', 2, 1, 1, 'S', 2),
-('Apartamento', 4, 4, 4, 4, 'S', '4', 4, '4', 'Vitoria', 4, '4444', 4, 4, 4, 'S', 3),
-('Apartamento', 6, 6, 6, 6, 'S', '6', 6, '6', 'SantaTereza', 6, '66666666', 6, 6, 6, 'S', 4),
-('Apartamento', 3, 3, 3, 3, 'S', '3', 3, '3', 'Vitoria', 3, '333333', 3, 2, 2, 'S', 5),
-('Casa', 1, 1, 1, 1, 'S', '1', 1, '1', 'SantaTereza', 1, '1', 1, 0, 0, 'N', 6),
-('Apartamento', 9, 9, 9, 9, 'S', '9', 9, '9', 'Vitoria', 9, '99999', 9, 9, 9, 'S', 7),
-('Casa', 3, 3, 3, 3, 'S', '3', 3, '3', 'Vitoria', 3, '3333', 3, 0, 0, 'S', 8),
-('Casa', 8, 8, 8, 8, 'S', '8', 8, '8', 'Vitoria', 8, '888888888', 8, 0, 0, 'S', 9),
-('Casa', 7, 7, 7, 7, 'S', '7', 7, '7', 'Horto', 7, '77777', 7, 0, 0, 'S', 10),
-('Casa', 9, 9, 9, 9, 'S', '9', 9, '9', 'Vitoria', 9, '99999', 9, 0, 0, '', 11),
-('Casa', 3, 0, 1, 163, 'N', 'Rua dente', 23, 'padaria ao lado', 'Horto', 3213, '3213 sdaf', 1, 0, 0, '', 12),
-('Apartamento', 2, 2, 2, 2, 'S', '2', 2, '2', 'Horto', 2, '22', 2, 2, 2, 'S', 13),
-('Apartamento', 3, 3, 3, 3, 'S', '3', 3, '3', 'Floresta', 3, '33', 3, 3, 3, 'N', 14),
-('Apartamento', 3, 3, 3, 3, 'S', '3', 3, '3', 'Vitoria', 3, '333', 3, 3, 3, 'N', 15);
+('Apartamento', 2, 1, 1, 150, 'S', 'Rua Vermelha', 54, 'Bloco 02', 'Vitoria', 687, 'Perto a ponto de ônibus e supermercado.', 1, 1, 120, 'S', 16),
+('Casa', 3, 2, 3, 200, 'N', 'Rua Seis', 66, 'Próximo a padaria', 'Goania', 900, 'Espaçoso e bem acabado.', 1, 0, 0, '', 17),
+('Apartamento', 4, 2, 2, 100, 'S', 'Rua Mato Grosso', 1356, '401', 'Floresta', 1500, 'Perto de farmácia e supermercado.', 2, 4, 500, 'S', 18),
+('Casa', 5, 3, 4, 266, 'S', 'Rua Nossa Senhora da Guia', 563, '0', 'Vitoria', 3000, 'Ambiente arejado e bem seguro com muros altos.', 2, 0, 0, '', 19),
+('Apartamento', 2, 1, 1, 75, 'N', 'Rua Minas Gerais', 1896, '903', 'Goania', 900, 'Ambiente estudantil, perto de universidades e supermercado.', 1, 9, 100, 'N', 20),
+('Casa', 3, 3, 2, 200, 'S', 'Rua Amazonas', 859, 'Perto do varejão ', 'SantaTereza', 1800, 'Ótima localização para famílias com filhos pequenos.', 2, 0, 0, '', 21),
+('Apartamento', 3, 1, 2, 109, 'N', 'Rua Maranhão', 1578, '403', 'VilaDaLuz', 1200, 'Localizado há 10 minutos do centro da cidade', 2, 4, 120, 'N', 22),
+('Apartamento', 5, 3, 2, 169, 'S', 'Rua São Paulo', 147, '1201', 'Goania', 2500, 'Prédio com piscina, salão de festas e academia.', 2, 12, 1200, 'S', 23),
+('Casa', 6, 4, 4, 525, 'N', 'Rua Marechal João Pinheiro', 582, 'Bloco A4', 'Floresta', 3900, 'Casa grande na região de casas do bairro.', 3, 0, 0, '', 24);
 
 -- --------------------------------------------------------
 
@@ -89,25 +83,11 @@ CREATE TABLE `visita` (
 --
 
 INSERT INTO `visita` (`ID`, `imovelid`, `data`, `hora`) VALUES
-(4, 2, '2021-06-30', '16:49'),
-(5, 3, '2021-06-30', '17:16'),
-(6, 1, '2021-06-03', '16:26'),
-(7, 4, '2021-06-29', '15:40'),
-(8, 1, '2022-07-01', '21:31'),
-(9, 3, '0333-03-03', '03:03'),
-(10, 2, '2222-02-02', '02:02'),
-(11, 5, '0001-01-01', '01:01'),
-(12, 4, '0001-05-01', '01:01'),
-(13, 1, '5555-05-05', '05:05'),
-(14, 3, '2003-03-03', '01:01'),
-(15, 1, '2021-06-29', '15:05'),
-(16, 5, '2122-01-30', '02:02'),
-(17, 8, '2021-06-29', '15:55'),
-(18, 1, '', ''),
-(19, 6, '2201-06-29', '02:02'),
-(20, 2, '1997-02-02', '23:06'),
-(21, 2, '0002-02-02', '12:02'),
-(22, 5, '2004-04-04', '05:04');
+(24, 16, '2021-06-29', '19:37'),
+(25, 16, '2021-06-29', '19:38'),
+(26, 17, '2021-06-29', '20:07'),
+(27, 16, '2021-07-01', '10:48'),
+(28, 20, '2021-06-24', '11:30');
 
 --
 -- Índices para tabelas despejadas
@@ -133,13 +113,13 @@ ALTER TABLE `visita`
 -- AUTO_INCREMENT de tabela `imobiliaria`
 --
 ALTER TABLE `imobiliaria`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
