@@ -68,15 +68,20 @@ else if($opcao == 'agendar')
     		$_SESSION['msg'] = "<p style='color:green;'>Visita cadastrada com sucesso</p>";
     		header("Location: index.php");
     	}else{
-    		$_SESSION['msg'] = "<p style='color:red;'>Visita não foi cadastrada com sucesso</p>";
+    		$_SESSION['msg'] = "<p style='color:red;'>Visita não cadastrada</p>";
     		header("Location: index.php");
     	}
     }
     else
     {
-        	$_SESSION['msg'] = "<p style='color:red;'>ID do ímovel nao existe</p>";
+        	$_SESSION['msg'] = "<p style='color:red;'>Não existe imóvel com este ID cadastrado</p>";
         	header("Location: index.php");
-    }   
+    }
+    
     mysqli_close($conn);
+}
+else if($opcao == 'visitas_agendadas')
+{
+    include_once("agendar.php");
 }
 ?>

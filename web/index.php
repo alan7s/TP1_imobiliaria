@@ -58,6 +58,7 @@ session_start();
                 <option  value="cadastro">Cadastrar imóvel</option>
                 <option  value="visualizar">Visualizar imóveis cadastrados</option>
                 <option value="agendar">Agendamento de visita</option>
+                <option value="visitas_agendadas">Visualizar visitas agendadas</option>
             </select>
         
             <div id="cadastrar" style="display:none" class="form-group"> 
@@ -192,7 +193,12 @@ session_start();
                    </div>
                    
             </div>
-             
+            <div id = "vistas_agendadas" style="display:none" class="form-group">
+                <div class="form-group">
+                 <br>
+                    <input class="btn btn-primary" onclick= "salvar()" type="submit"   value="Visualizar Visitas">   
+                </div>
+            </div>
             
              <script>
                     function selectopcao(){
@@ -201,6 +207,7 @@ session_start();
                             document.getElementById("visualizar").style.display  = "block";
                             document.getElementById("cadastrar").style.display  = "none";
                             document.getElementById("agendar").style.display  = "none";
+                            document.getElementById("vistas_agendadas").style.display  = "none";
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = false;
@@ -213,7 +220,8 @@ session_start();
                         if(x=='cadastro'){
                             document.getElementById("visualizar").style.display  = "none";
                             document.getElementById("cadastrar").style.display  = "block";
-                            document.getElementById("agendar").style.display  = "none";;
+                            document.getElementById("agendar").style.display  = "none";
+                            document.getElementById("vistas_agendadas").style.display  = "none";
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = true;
@@ -227,6 +235,7 @@ session_start();
                             document.getElementById("visualizar").style.display  = "none";
                             document.getElementById("cadastrar").style.display  = "none";
                             document.getElementById("agendar").style.display  = "block";
+                            document.getElementById("vistas_agendadas").style.display  = "none";
                             input = document.getElementById("cadastrar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = false;
@@ -234,6 +243,21 @@ session_start();
                             input = document.getElementById("agendar").getElementsByTagName('input');
                             for(i = 0; i < input.length; i++){
                                 input[i].required = true;
+                            }
+                        }
+                        if(x=='visitas_agendadas')
+                        {
+                            document.getElementById("visualizar").style.display  = "none";
+                            document.getElementById("cadastrar").style.display  = "none";
+                            document.getElementById("agendar").style.display  = "none";
+                            document.getElementById("vistas_agendadas").style.display  = "block";
+                            input = document.getElementById("cadastrar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = false;
+                            }
+                            input = document.getElementById("agendar").getElementsByTagName('input');
+                            for(i = 0; i < input.length; i++){
+                                input[i].required = false;
                             }
                         }
                     }
